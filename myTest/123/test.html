@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const a = {t_0:'111',m_0:'222',t_1:'1111',m_1:'2222',t_2:'11111',m_2:'22222'}
+        function pot(obj){
+            let keys = Object.keys(obj)
+            let values = Object.values(obj)
+            
+            var b = []
+            for (var i=0;i<keys.length/2;i++){
+                b.push({})
+            }
+            keys.map((key,index)=>{
+                let reg = /([A-Za-z0-9])_([0-9])/
+                let res = key.match(reg)
+                let attr = res[1]
+                b[res[2]][attr] = values[index]
+                b[res[2]].order= res[2]
+            })
+            return b;
+        }
+        let d=pot(a)
+        console.log(d)
+        const b=[{t:'111',m:'222',oeder:'0'},{t:'1111',m:'2222',order:'1'},{t:'11111',m:'22222',order:'2'},{t:'11',m:'22',order:'3'}]
+        function cot(array) {
+            let c={}
+            for(var i=0; i<2;i++){
+                array.map((key,index)=>{
+                    let item = Object.keys(key);
+                    let values = Object.values(key)
+                    c[item[i]+'_'+values[2]]=values[i]
+                }) 
+            }
+            return c
+        }
+        let e =cot(b)
+        console.log(e)
+    </script>
+</body>
+</html>

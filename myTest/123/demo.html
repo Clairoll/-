@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const a = { 
+            t_0: '111', 
+            m_0: '111', 
+            t_1: '2222', 
+            m_1: '2222', 
+	    } 
+        const b = [ 
+            { 
+                t: '111', 
+	            m: '111', 
+	            order: 0 
+	        }, 
+	        { 
+ 	            t: '2222', 
+                m: '2222', 
+  	            order: 1 
+	        }, 
+	    ]
+        for( item in a) {
+            let d =item.split('_');
+             console.log(d) 
+        }
+    </script>
+</body>
+</html>

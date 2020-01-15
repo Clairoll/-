@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        const travo = list => {
+          const arr = [];
+          list.forEach(element => {
+              console.log("element",element)
+            const obj = {};
+            if(element.cardName) {
+                obj.label = element.cardName
+                obj.value = element.csId
+                obj.isCard = true
+                obj.bindType = element.bindType
+            } else if(element.level) {
+                obj.label = element.title
+                obj.value = element.vipId
+                obj.isCard = false
+            }
+            let newDataList = [];
+            if (element.vipItems && element.vipItems.length > 0) {
+              newDataList = travo(element.vipItems);
+            }
+            obj.charild = newDataList;
+            arr.push(obj)
+          });
+          return arr;
+        };
+
+        let data = {
+            vipCardLevels: [
+              {
+                bindType: 0,
+                cardName: "32121",
+                csId: 1,
+                vipItems: [
+                  { title: "粉丝会员1", id: null, level: "1", vipId: "1" },
+                  { title: "普通会员", id: null, level: "2", vipId: "2" },
+                  { title: "黄金会员", id: null, level: "3", vipId: "3" },
+                  { title: "铂金会员", id: null, level: "4", vipId: "4" },
+                  { title: "钻石会员", id: null, level: "5", vipId: "5" },
+                  { title: "金鱼等级", id: null, level: "8", vipId: "502943" },
+                  { title: "天下无敌", id: null, level: "14", vipId: "514919" },
+                  { title: "最最最最", id: null, level: "17", vipId: "503124" },
+                  {
+                    title: "实体卡等级_预充值",
+                    id: null,
+                    level: "22",
+                    vipId: "506911"
+                  },
+                  { title: "测试方式", id: null, level: "24", vipId: "506930" },
+                  { title: "处事方式", id: null, level: "25", vipId: "506934" },
+                  { title: "最最最高", id: null, level: "26", vipId: "506935" },
+                  {
+                    title: "测试——不用要用这个",
+                    id: null,
+                    level: "28",
+                    vipId: "521560"
+                  },
+                  {
+                    title: "夏念军测试等级",
+                    id: null,
+                    level: "30",
+                    vipId: "526112"
+                  }
+                ]
+              },
+              {
+                bindType: 1,
+                cardName: "harper区域卡",
+                csId: 2242779,
+                vipItems: [{ title: "", id: null, level: "2", vipId: "521625" }]
+              },
+              {
+                bindType: 1,
+                cardName: "排第一个",
+                csId: 2242808,
+                vipItems: [{ title: "", id: null, level: "2", vipId: "521668" }]
+              },
+              {
+                bindType: 1,
+                cardName: "   美味上海区域卡",
+                csId: 2242824,
+                vipItems: [{ title: "", id: null, level: "2", vipId: "521696" }]
+              },
+              {
+                bindType: 1,
+                cardName: "曹树建特制区域卡",
+                csId: 2242872,
+                vipItems: [{ title: "", id: null, level: "2", vipId: "521881" }]
+              },
+              {
+                bindType: 1,
+                cardName: "美味体验店",
+                csId: 2242882,
+                vipItems: [{ title: "", id: null, level: "2", vipId: "521916" }]
+              },
+              {
+                bindType: 1,
+                cardName: "秒付测试NCD专用2",
+                csId: 2242905,
+                vipItems: [{ title: "", id: null, level: "2", vipId: "522029" }]
+              },
+              {
+                bindType: 1,
+                cardName: "缓存测试",
+                csId: 2242970,
+                vipItems: [
+                  { title: "普通会员", id: null, level: "2", vipId: "522363" }
+                ]
+              },
+              {
+                bindType: 1,
+                cardName: "验收区域卡",
+                csId: 2242974,
+                vipItems: [
+                  { title: "普通会员", id: null, level: "2", vipId: "522376" }
+                ]
+              },
+              {
+                bindType: 1,
+                cardName: "悲哀&精彩",
+                csId: 2242975,
+                vipItems: [
+                  { title: "普通会员", id: null, level: "2", vipId: "522377" }
+                ]
+              },
+              {
+                bindType: 1,
+                cardName: "只发奖励积分 ",
+                csId: 2242977,
+                vipItems: [
+                  { title: "普通会员", id: null, level: "2", vipId: "522385" }
+                ]
+              },
+              {
+                bindType: 1,
+                cardName: "甜测试用",
+                csId: 2243121,
+                vipItems: [
+                  { title: "普通会员", id: null, level: "2", vipId: "523283" }
+                ]
+              },
+              {
+                bindType: 1,
+                cardName: "测试黑卡专用",
+                csId: 2243125,
+                vipItems: [
+                  { title: "普通会员", id: null, level: "2", vipId: "523304" }
+                ]
+              },
+              {
+                bindType: 1,
+                cardName: "测试首次储值门店",
+                csId: 2243354,
+                vipItems: [
+                  { title: "普通会员", id: null, level: "2", vipId: "524756" }
+                ]
+              },
+              {
+                bindType: 1,
+                cardName: "哼哼哈嘿",
+                csId: 2243357,
+                vipItems: [
+                  { title: "普通会员", id: null, level: "2", vipId: "524765" }
+                ]
+              },
+              {
+                bindType: 1,
+                cardName: "美味图图的区域卡",
+                csId: 2243387,
+                vipItems: [
+                  { title: "普通会员", id: null, level: "2", vipId: "524966" }
+                ]
+              },
+              {
+                bindType: 1,
+                cardName: "80",
+                csId: 2243393,
+                vipItems: [
+                  { title: "普通会员", id: null, level: "2", vipId: "524979" }
+                ]
+              },
+              {
+                bindType: 1,
+                cardName: "2121",
+                csId: 2243521,
+                vipItems: [
+                  { title: "普通会员", id: null, level: "2", vipId: "526116" }
+                ]
+              }
+            ]
+          }
+
+    //   let children = 
+      console.log(travo(data.vipCardLevels))
+    </script>
+  </body>
+</html>

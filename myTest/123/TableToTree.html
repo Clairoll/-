@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let tableData = [
+        { id: "1", pid: null, label: "1" },
+        { id: "1-1", pid: "1", label: "1-1" },
+        { id: "1-1-1", pid: "1-1", label: "1-1-1" },
+        { id: "1-2", pid: "1", label: "1-2" },
+        { id: "2", pid: null, label: "2" },
+        { id: "2-1", pid: "2", label: "2-1" },
+        { id: "2-2", pid: "2", label: "2-2" }
+      ];
+
+      function TableToTree(pid = null) {
+        let data = tableData.filter(item => item.pid === pid);
+        data.forEach(item => {
+          item.children = TableToTree(item.id);
+        });
+        return data;
+      }
+      let TreeData = [
+        {
+          id: "1",
+          pid: null,
+          label: "1",
+          children: [
+            {
+              id: "1-1",
+              pid: "1",
+              label: "1-1",
+              children: [
+                { id: "1-1-1", pid: "1-1", label: "1-1-1", children: [] }
+              ]
+            },
+            { id: "1-2", pid: "1", label: "1-2", children: [] }
+          ]
+        },
+        {
+          id: "2",
+          pid: null,
+          label: "2",
+          children: [
+            { id: "2-1", pid: "2", label: "2-1", children: [] },
+            { id: "2-2", pid: "2", label: "2-2", children: [] }
+          ]
+        }
+      ];
+
+      function treeData2tableData(td = []) {
+        return td.reduce(
+          (acc, { id, pid, children, label }) => [
+            ...acc,
+            ...treeData2tableData(children),
+            { id, pid, label }
+          ],
+          []
+        );
+      }
+
+      console.log(treeData2tableData(TreeData));
+    </script>
+  </body>
+</html>

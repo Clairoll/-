@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const values = {t_0:'111',m_0:'222',t_1:'1111',m_1:'2222',t_2:'11111',m_2:'22222'}
+        let prizes = []
+        let tempObj = {}
+
+        for (let index = 0; index < 8; index++) {
+            tempObj[index] = {}
+        }
+        for (const key in values) {
+            if (values.hasOwnProperty(key)) {
+                if (key.includes('_')) {
+                    let [k, v] = key.split('_')
+                    tempObj[v][k] = values[key]
+                    tempObj[v]['btOrder'] = v
+                }
+            }
+        }
+        for (const key in tempObj) {
+            if (tempObj.hasOwnProperty(key)) {
+                prizes[+key] = tempObj[key]
+            }
+        }
+        console.log('prizes: ', prizes)
+    </script>
+</body>
+</html>

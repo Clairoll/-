@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //使用reduce方法可以完成多维度的数据叠加。如上例中的初始值{sum: 0}，这仅仅是一个维度的操作，如果涉及到了多个属性的叠加，如{sum: 0,totalX: 0,totalY: 0}，则需要相应的逻辑进行处理。
+        var reduces = {
+            totalX:function(state,item){
+                // console.log(state)
+                return state.X += item.totalX ;
+            },
+            totalY:function(state,item){
+                return state.Y += item.totalX ;
+            }
+        }
+        var manageReducer = function (reduces) {
+            // console.log(reduces)
+            return function (state, item) {
+                // console.log(item)
+                return Object.keys(reduces).reduce(
+                    function (nextState, key) {
+                        // console.log(key)
+                        reduces[key](state, item);
+                        // console.log(state)
+                        return state;
+                    },
+                    {}
+                );
+            }
+        }
+        
+
+        var bigTotal = manageReducer(reduces);
+        var initSate={X:0,Y:0}
+        var items = [{ totalX: 10}, {totalX: 120}, {totalX: 1000 }]
+        var totals = items.reduce(bigTotal, initSate)
+        console.log(totals)
+    </script>
+</body>
+
+</html>

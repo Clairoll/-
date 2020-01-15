@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   function add(num) {
+      //     let c = num => {
+      //       c.num += num;
+      //       return c;
+      //     };
+      //     c.num = num || 0;
+      //     c.valueOf = () => c.num;
+      //     c.toString = () => c.valueOf().toString();
+      //     return c;
+      //   }
+      var add = function(a) {
+        var sum = a;
+        var addMore = function(b) {
+          if (b == null) {
+            return sum;
+          } else {
+            sum += b;
+            return addMore;
+          }
+        };
+        addMore.toString = addMore;
+        return addMore;
+      };
+      console.log(add(1));
+      console.log(add(1)(2));
+      console.log(add(1)(2) + 3);
+
+      //   var a = [1, 2, 3];
+      //   a.join = a.shift;
+      //   console.log(a == 1 && a == 2 && a == 3);
+    </script>
+  </body>
+</html>

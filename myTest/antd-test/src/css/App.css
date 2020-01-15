@@ -1,0 +1,10 @@
+.App-input .ant-input {
+    width: 300px;
+    margin: 0 8px 8px 0;
+    display: block;
+  }
+.App-input {
+   width: 300px;
+   height: 20vh;
+   margin: 0 auto;
+}

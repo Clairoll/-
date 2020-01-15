@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+        const scoreOptions = [{ label: '堂食', value: 1 }, { label: '外卖', value: 2 }]
+        const data = "0"
+        let score = {}
+        scoreOptions.map(item => {
+            score[item.value] = item.label
+        })
+
+        let datas = data.split(',');
+        let string = ""
+        for (var i=0; i<datas.length;i++) {
+            if(score.hasOwnProperty(datas[i])){
+                string =string+score[datas[i]] + "、" 
+            }    
+        }
+        string =string.substr(0,string.length-1)
+
+        if (string === "") {
+            for(item in score) {
+                string = string+score[item] + '、'
+            }
+
+            string = string.substr(0,string.length-1)
+
+            if(datas[0] === '0') {
+                string = string + "均不允许" 
+            }
+        }
+
+        console.log(string)
+    </script>
+</body>
+</html>

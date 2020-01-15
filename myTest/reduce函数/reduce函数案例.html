@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		var result = [
+			{
+				subject: 'math',
+				score: 90,
+				weight:0.5
+			}, {
+				subject: 'Chinese',
+				score: 88,
+				weight:0.3
+			}, {
+				subject: 'English',
+				score: 85,
+				weight:0.2
+			}
+		]
+
+		var avraScore = result.reduce(function(prev, item){
+			return item.score * item.weight + prev
+		},0)
+		console.log(avraScore)
+	</script>
+</body>
+
+</html>

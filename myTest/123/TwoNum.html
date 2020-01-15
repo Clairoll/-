@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
+       * nums = [2, 11, 3, 6, 15,4, 7];
+       * target = 9;
+       * 示例:
+       * 给定
+       * 因为 nums[0] + nums[6] = 2 + 7 = 9
+       * 所以返回 [[0, 6],[2,3]]
+       */
+      var nums = [2, 11, 3, 6, 15, 4, 7];
+      var target = 9;
+      function TwoNum(nums, target) {
+        const map = {};
+        const res = [];
+        for (let i = 0; i < nums.length; i++) {
+          if (nums[i] in map) {
+            res.push([map[nums[i]], i]);
+          }
+          map[target - nums[i]] = i;
+        }
+        return res;
+      }
+
+      
+      console.log(TwoNum(nums, target), "func");
+    </script>
+  </body>
+</html>
